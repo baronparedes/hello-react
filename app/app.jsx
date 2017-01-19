@@ -2,6 +2,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+var ReactBootstrap = require('react-bootstrap');
 
 var KanbanApplication = React.createClass({
   render: function() {
@@ -10,7 +11,12 @@ var KanbanApplication = React.createClass({
     var message =
       'Hello World! React has been successfully running for ' + seconds + ' seconds.';
 
-    return <p>{message}</p>;
+    return (
+      <div className="panel">
+        <p>{message}</p>
+        <button>Click Me!</button>
+      </div>
+    );
   }
 });
 

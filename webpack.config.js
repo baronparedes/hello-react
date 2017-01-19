@@ -2,21 +2,51 @@ const webpack = require('webpack');
 
 const config = {
   devtool: "inline-source-map",
-  entry:  __dirname + "/app/app.js",
+  entry:  __dirname + "/app/app.jsx",
   output: {
     path: "./public/js/",
     publicPath: "/js/",
     filename: "bundle.js"
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: "babel",
-      query: {
-        presets: ["es2015","react","stage-0"]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel",
+        query: {
+          presets: ["es2015","react","stage-0"]
+        }
+      },
+      { 
+        test: /\.css$/, 
+        loader: "style-loader!css-loader" 
+      },
+      { 
+        test: /\.png$/, 
+        loader: "url-loader?limit=100000" 
+      },
+      { 
+        test: /\.jpg$/, 
+        loader: "file-loader" 
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'url?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'url?limit=10000&mimetype=application/octet-stream'
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'file'
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+        loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
-    }]
+    ]
   },
   devServer: {
     contentBase: "./public",
@@ -25,6 +55,7 @@ const config = {
     inline: true
   },
 }
+
 if (process.env.NODE_ENV === 'production') {
   config.devtool = false;
   config.plugins = [
@@ -35,4 +66,5 @@ if (process.env.NODE_ENV === 'production') {
     })
   ];
 };
+
 module.exports = config;
