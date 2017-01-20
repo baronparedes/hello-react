@@ -1,7 +1,7 @@
 {
-  "name": "kanban-board",
+  "name": "mm-react-js",
   "version": "1.0.0",
-  "description": "Kanban Board Web App",
+  "description": "Magenic Masters - React JS",
   "main": "app.jsx",
   "directories": {
     "doc": "docs",
@@ -18,26 +18,6 @@
   },
   "author": "Baron Patrick Paredes",
   "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "css-loader": "^0.26.1",
-    "file-loader": "^0.9.0",
-    "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
-  },
-  "dependencies": {
-    "bootstrap": "^3.3.7",
-    "react": "^15.4.2",
-    "react-bootstrap": "^0.30.7",
-    "react-dom": "^15.4.2"
-  },
   "babel": {
     "presets": [
       "react",
@@ -45,5 +25,35 @@
       "stage-0"
     ]
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-webpack": "0.0.5",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "path": "^0.12.7",
+    "postcss-loader": "^1.2.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "react-fontawesome": "^1.5.0"
+  }
 }

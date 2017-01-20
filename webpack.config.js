@@ -1,12 +1,14 @@
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = {
   devtool: "inline-source-map",
   entry:  __dirname + "/app/app.jsx",
   output: {
-    path: "./public/js/",
-    publicPath: "/js/",
-    filename: "bundle.js"
+    filename: 'bundle.js',
+    path: './public/build',
+    publicPath: '/build/'
   },
   module: {
     loaders: [
@@ -18,9 +20,13 @@ const config = {
           presets: ["es2015","react","stage-0"]
         }
       },
-      { 
-        test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!postcss-loader!less-loader" 
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader!postcss-loader" 
       },
       { 
         test: /\.png$/, 
@@ -47,6 +53,18 @@ const config = {
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ]
+  },
+  plugins: [
+    new ExtractTextPlugin('bundle.css')
+  ],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
+  ],
+  resolve: {
+    extensions: ['', '.js', 'jsx', '.less'],
+    root: __dirname + "/app"
   },
   devServer: {
     contentBase: "./public",

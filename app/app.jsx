@@ -1,30 +1,29 @@
 'use strict';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactBootstrap = require('react-bootstrap');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Heading from './components/heading.jsx'
+import Section from './components/section.jsx'
+import Button from 'react-bootstrap/lib/Button'
+import 'react-bootstrap'
+import 'react-fontawesome'
 
-var KanbanApplication = React.createClass({
-  render: function() {
-    var elapsed = Math.round(this.props.elapsed  / 100);
-    var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
-    var message =
-      'Hello World! React has been successfully running for ' + seconds + ' seconds.';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap-theme.min.css'
+import 'font-awesome/css/font-awesome.min.css'
 
-    return (
-      <div className="panel">
-        <p>{message}</p>
-        <button>Click Me!</button>
+import './styles/base.less'
+
+class App extends React.Component{
+  render(){
+    return(
+      <div className="panel panel-default">
+        <Heading name="Baron Paredes"/>
+        <Section/>
+        <Button bsStyle="primary">Click Me!</Button>
       </div>
     );
   }
-});
+}
 
-var start = new Date().getTime();
-
-setInterval(function() {
-  ReactDOM.render(
-    <KanbanApplication elapsed={new Date().getTime() - start} />,
-    document.getElementById('root')
-  );
-}, 50);
+ReactDOM.render(<App/>, document.getElementById('app'));
