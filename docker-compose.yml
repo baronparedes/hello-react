@@ -1,0 +1,13 @@
+
+version: '2'
+
+services:
+  hello-react:
+    image: hello-react:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8080:8080

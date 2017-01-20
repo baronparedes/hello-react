@@ -2,28 +2,36 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Heading from './components/heading.jsx'
-import Section from './components/section.jsx'
-import Button from 'react-bootstrap/lib/Button'
 import 'react-bootstrap'
 import 'react-fontawesome'
+
+// import { AppHeading, AppContent, AppFooter} from './components'
+import AppHeading from './components/AppHeading'
+import AppContent from './components/AppContent'
+import AppFooter from './components/AppFooter'
+import { Button, Glyphicon } from 'react-bootstrap/lib'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap-theme.min.css'
 import 'font-awesome/css/font-awesome.min.css'
 
-import './styles/base.less'
+import './styles/base.scss'
 
-class App extends React.Component{
-  render(){
-    return(
-      <div className="panel panel-default">
-        <Heading name="Baron Paredes"/>
-        <Section/>
-        <Button bsStyle="primary">Click Me!</Button>
+export default class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <AppHeading />
+        <div className="container">
+          <AppContent />
+          <div className="test-css">
+            <h1>Hello From Sass!</h1>
+          </div>
+        </div>
+        <AppFooter />
       </div>
     );
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
