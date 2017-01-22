@@ -1,17 +1,25 @@
 import React from 'react';
+import ButtonSocial from './layout/ButtonSocial'
 
 export default class AppFooter extends React.Component {
   render() {
     return (
-      <footer className="text-center">
-        <div className="text-center">
-          <a href="#"><i className="footer-icon fa fa-facebook-f fa-2x"></i></a>
-          <a href="#"><i className="footer-icon fa fa-twitter fa-2x"></i></a>
-          <a href="https://github.com/baronparedes/hello-react" target="_blank"><i className="footer-icon fa fa-github fa-2x"></i></a>
+      <footer className="text-center footer">
+        <div className="footer-above">
+          <ButtonSocial href="#" fa="fa fa-facebook fa-fw"></ButtonSocial>
+          <ButtonSocial href="#" fa="fa fa-twitter fa-fw"></ButtonSocial>
+          <ButtonSocial href="https://github.com/baronparedes/hello-react" fa="fa fa-github fa-fw"></ButtonSocial>
         </div>
-        <div>Copyright © Magenic Masters - React JS</div>
+        <div className="footer-below">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                Copyright &copy; Magenic Masters - React JS 2017
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
-
     );
   }
 }

@@ -1,12 +1,15 @@
 import React from 'react';
-import NavigationBar from './Layout/NavigationBar'
+import NavigationBar from './layout/NavigationBar'
+import HeaderInfo from './layout/HeaderInfo'
+
 
 export default class AppHeading extends React.Component {
   render() {
     return (
-      <header>
+      <div>
         <NavigationBar />
-      </header>
+        <HeaderInfo />
+      </div>
     );
   }
 }
