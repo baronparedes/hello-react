@@ -6,7 +6,7 @@ import { Jumbotron, Button } from 'react-bootstrap/lib'
 export default class HeaderInfo extends React.Component {
     render() {
         return (
-            <header>
+            <header id="hero-header">
                 <Jumbotron>
                     <div className="container">
                         <h1>Hello, world!</h1>

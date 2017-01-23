@@ -1,115 +1,29 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
-
-@import url('sticky-footer');
-
+@import 'layout/variables',
+'layout/button-social',
+'layout/navigation',
+'layout/sticky-footer';
 body {
-    font-family: 'Lato', sans-serif;
+  font-family: $site-font;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
 }
 
-p { 
-	font-family: 'Lato', sans-serif;
-}
-
-header{
-  padding-top: 50px;
-}
-
-header .jumbotron {
-  text-align: center;
-  background: #2C3E50;
-  color: white;
-}
-
-.navbar-custom {
-  background: #233140;
-  border: none;
-}
-.navbar-custom a:focus {
-  outline: none;
-}
-.navbar-custom .navbar-brand {
-  color: white;
-}
-.navbar-custom .navbar-brand:hover,
-.navbar-custom .navbar-brand:focus,
-.navbar-custom .navbar-brand:active,
-.navbar-custom .navbar-brand.active {
-  color: white;
-}
-.navbar-custom .navbar-nav {
-  letter-spacing: 1px;
-}
-.navbar-custom .navbar-nav li a {
-  color: white;
-}
-.navbar-custom .navbar-nav li a:hover {
-  color: #18BC9C;
-  outline: none;
-}
-.navbar-custom .navbar-nav li a:focus,
-.navbar-custom .navbar-nav li a:active {
-  color: white;
-}
-.navbar-custom .navbar-nav li.active a {
-  color: white;
-  background: #18BC9C;
-}
-.navbar-custom .navbar-nav li.active a:hover,
-.navbar-custom .navbar-nav li.active a:focus,
-.navbar-custom .navbar-nav li.active a:active {
-  color: white;
-  background: #18BC9C;
-}
-.navbar-custom .navbar-toggle {
-  color: white;
-  font-size: 10px;
-  border-color: white;
-}
-.navbar-custom .navbar-toggle:hover,
-.navbar-custom .navbar-toggle:focus {
-  background-color: #18BC9C;
-  color: white;
-  border-color: #18BC9C;
-}
-
-.navbar-custom .navbar-nav ul.dropdown-menu{
-    background-color: #2C3E50;
-}
-
-.btn-outline {
-  color: white;
-  border: solid 2px white;
-  background: transparent;
-  transition: all 0.3s ease-in-out;
-  margin-top: 10px;
-}
-
-.btn-outline:hover,
-.btn-outline:focus,
-.btn-outline:active,
-.btn-outline.active {
-  color: #18BC9C;
-  background: white;
-  border: solid 2px white;
-}
-
-.btn-social {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  border: 2px solid white;
-  border-radius: 100%;
-  text-align: center;
-  font-size: 20px;
-  line-height: 45px;
-}
-
-.icon-container{
-  margin: 5px;
-  display: inline;
+header {
+  &#hero-header {
+    padding-top: 50px;
+    .jumbotron {
+      text-align: center;
+      background: $secondary-bg-color;
+      color: $contrast-font-color;
+    }
+  }
 }

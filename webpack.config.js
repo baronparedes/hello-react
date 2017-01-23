@@ -24,17 +24,10 @@ const config = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract(
           'style', // The backup style loader
           'css?sourceMap!sass?sourceMap'
-        )
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style', // The backup style loader
-          'css?sourceMap'
         )
       },
       {
