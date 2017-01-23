@@ -10,7 +10,7 @@ const config = {
     publicPath: '/build/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.sass', '.css'],
+    extensions: ['', '.js', '.jsx', '.scss', '.css'],
     root: __dirname + "/app"
   },
   module: {

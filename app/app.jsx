@@ -13,7 +13,6 @@ import 'font-awesome/css/font-awesome.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/css/bootstrap-theme.min.css'
 
-// import './styles/bootstrap-themes/freelancer.min.css'
 import './styles/base.scss'
 
 export default class App extends React.Component {
