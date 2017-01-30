@@ -9,16 +9,16 @@ import AppHeading from './components/AppHeading'
 import AppContent from './components/AppContent'
 import AppFooter from './components/AppFooter'
 
-import 'font-awesome/css/font-awesome.min.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/css/bootstrap-theme.min.css'
+import 'font-awesome/css/font-awesome.min'
+import 'bootstrap/dist/css/bootstrap.min'
+import 'bootstrap/dist/css/bootstrap-theme.min'
 
-import './styles/base.scss'
+import './styles/base'
 
 export default class App extends React.Component {
   render() {
     return (
-      <div className="page-wrap">
+      <div>
         <AppHeading />
         <AppContent />
         <AppFooter />

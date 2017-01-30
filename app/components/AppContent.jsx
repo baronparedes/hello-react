@@ -13,6 +13,7 @@ export default class AppContent extends React.Component {
           Section
         </Panel>
         <CardView />
+        <CardView />
       </div>
     );
   }

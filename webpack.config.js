@@ -66,7 +66,8 @@ const config = {
     contentBase: "./public",
     colors: true,
     historyApiFallback: true,
-    inline: true
+    inline: true,
+    // host: ['192.168.0.14', '.']
   },
 }
 
