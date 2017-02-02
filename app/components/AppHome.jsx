@@ -7,7 +7,9 @@ export default class AppHome extends React.Component {
         return (
             <div>
                 <NavigationBar />
-                {this.props.children}
+                <div id="app-content">
+                    {this.props.children}
+                </div>
                 <FooterInfo />
             </div>
         );

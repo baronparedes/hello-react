@@ -3,27 +3,23 @@
 import React from 'react';
 
 export default class TaskItems extends React.Component {
+    generateTaskItem(task) {
+        return (
+            <tr>
+                <td>{task.id}</td>
+                <td>
+                    <h4>{task.name}</h4>
+                    <small>{task.description}</small>
+                </td>
+                <td>{task.priority}</td>
+                <td>{task.status}</td>
+            </tr>
+        );
+    }
     render() {
         return (
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@twitter</td>
-                </tr>
+                {this.props.tasks.map((_) => this.generateTaskItem(_))}
             </tbody>
         );
     }
