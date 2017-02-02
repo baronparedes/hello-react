@@ -1,10 +1,10 @@
 'use strict';
 
 import React from 'react';
-import Card from '../layout/Card'
+import Card from './Card'
 import { Grid, Row, Col } from 'react-bootstrap/lib'
 
-export default class PageSection extends React.Component {
+export default class CardList extends React.Component {
     render() {
         return (
             <Grid>

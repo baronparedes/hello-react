@@ -3,7 +3,8 @@
 @import 'layout/variables',
 'layout/button-social',
 'layout/navigation',
-'layout/sticky-footer';
+'layout/sticky-footer',
+'layout/panel';
 body {
   font-family: $site-font;
 }
@@ -17,13 +18,16 @@ h6 {
   font-family: $header-font;
 }
 
-header {
+div {
   &#hero-header {
-    padding-top: 50px;
     .jumbotron {
       text-align: center;
       background: $secondary-bg-color;
       color: $contrast-font-color;
     }
   }
+}
+
+.push-bottom{
+  padding-top: 20px;
 }

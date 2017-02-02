@@ -1,6 +1,10 @@
 /// <reference path="variables.scss" />
 @import 'variables';
 
+.nav-container{
+  padding-bottom: 50px;
+}
+
 .navbar-custom {
   background: $primary-bg-color;
   border: none;

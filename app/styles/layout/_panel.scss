@@ -1,0 +1,17 @@
+/// <reference path="_variables.scss" />
+@import 'variables';
+.panel-custom>.panel-heading {
+    background-color: $secondary-bg-color;
+    color: $contrast-font-color;
+    background-image: '';
+}
+.panel-custom{
+    border-color: $secondary-bg-color;
+    border-width: 1px;
+}
+
+.table-custom>thead{
+    background-color: $secondary-bg-color;
+    color: $contrast-font-color;
+    font-weight: '';
+}

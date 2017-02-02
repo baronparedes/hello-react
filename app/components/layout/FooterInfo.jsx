@@ -1,7 +1,7 @@
 import React from 'react';
-import ButtonSocial from './layout/ButtonSocial'
+import ButtonSocial from './ButtonSocial'
 
-export default class AppFooter extends React.Component {
+export default class FooterInfo extends React.Component {
   render() {
     return (
       <footer className="text-center footer">
