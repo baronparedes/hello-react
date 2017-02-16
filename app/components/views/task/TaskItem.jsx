@@ -32,7 +32,7 @@ export default class TaskItem extends React.Component {
         this.toggleEditor();
     }
     handleTaskItemDeleted() {
-        var task = this.state.task;
+        let task = this.state.task;
         this.props.onTaskItemDelete(task);
     }
     toggleEditor() {

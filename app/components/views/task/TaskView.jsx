@@ -7,7 +7,7 @@ import { Panel } from 'react-bootstrap/lib'
 
 export default class TaskView extends React.Component {
     render() {
-        var headerHtml = <h1>Task Master List</h1>;
+        let headerHtml = <h1>Task Master List</h1>;
         return (
             <PageContainer>
                 <Panel header={headerHtml} bsStyle="custom">

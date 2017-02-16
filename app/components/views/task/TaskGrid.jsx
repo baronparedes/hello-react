@@ -23,14 +23,14 @@ export default class TaskGrid extends React.Component {
         }
     }
     handleTaskItemDelete(item) {
-        var index = this.state.tasks.indexOf(item);
+        let index = this.state.tasks.indexOf(item);
         this.state.tasks.splice(index, 1);
         this.setState(this.state.tasks);
     }
     handleTaskItemUpdate(item) {
-        // var tasks = this.state.tasks.slice();
-        // var newTasks = tasks.map(function (task) {
-        //     for (var key in tasks) {
+        // let tasks = this.state.tasks.slice();
+        // let newTasks = tasks.map(function (task) {
+        //     for (let key in tasks) {
         //         if (task.id == item.id) {
         //             task[key] = item.value;
         //         }
