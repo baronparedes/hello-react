@@ -6,6 +6,8 @@ import 'react-router'
 import 'react-router-bootstrap'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 
 import 'font-awesome/css/font-awesome.min'
 import 'bootstrap/dist/css/bootstrap.min'
@@ -15,4 +17,9 @@ import './styles/base'
 import AppHome from './components/AppHome'
 import AppRouter from './components/AppRouter'
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>, 
+    document.getElementById('app')
+);

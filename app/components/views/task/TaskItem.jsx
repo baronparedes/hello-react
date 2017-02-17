@@ -11,29 +11,16 @@ export default class TaskItem extends React.Component {
     }
     constructor(props) {
         super(props);
-
-        this.toggleEditor = this.toggleEditor.bind(this);
-        this.handleTaskItemUpdated = this.handleTaskItemUpdated.bind(this);
-        this.handleTaskItemDeleted = this.handleTaskItemDeleted.bind(this);
-
-        let isEditable = false;
-        if (this.props.task.isNew) {
-            isEditable = true;
-        }
-
         this.state = {
-            isEditable: isEditable,
-            task: this.props.task
+            isEditable: this.props.task.isNew,
         }
     }
     handleTaskItemUpdated(item) {
-        this.setState({ task: item });
         this.props.onTaskItemUpdate(item);
         this.toggleEditor();
     }
     handleTaskItemDeleted() {
-        let task = this.state.task;
-        this.props.onTaskItemDelete(task);
+        this.props.onTaskItemDelete(this.props.task.id);
     }
     toggleEditor() {
         this.setState(prevState => ({
@@ -43,15 +30,15 @@ export default class TaskItem extends React.Component {
     render() {
         if (this.state.isEditable) {
             return <TaskItemEditor
-                task={this.state.task}
-                toggleEditor={this.toggleEditor}
-                handleTaskItemUpdated={this.handleTaskItemUpdated} />
+                task={this.props.task}
+                toggleEditor={this.toggleEditor.bind(this)}
+                handleTaskItemUpdated={this.handleTaskItemUpdated.bind(this)} />
         }
         else {
             return <TaskItemDisplay
-                task={this.state.task}
-                toggleEditor={this.toggleEditor}
-                handleTaskItemDeleted={this.handleTaskItemDeleted} />
+                task={this.props.task}
+                toggleEditor={this.toggleEditor.bind(this)}
+                handleTaskItemDeleted={this.handleTaskItemDeleted.bind(this)} />
         }
     }
 }

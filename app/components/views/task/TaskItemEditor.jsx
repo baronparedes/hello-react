@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, ButtonGroup, FormControl } from 'react-bootstrap/lib'
+import * as enums from '../../../core/enums'
 
 export default class TaskItemEditor extends React.Component {
     static propTypes = {
@@ -9,7 +10,6 @@ export default class TaskItemEditor extends React.Component {
     }
     constructor(props){
         super(props);
-        this.onTaskItemUpdated = this.onTaskItemUpdated.bind(this);
     }
     onTaskItemUpdated() {
         let task = {
@@ -17,7 +17,8 @@ export default class TaskItemEditor extends React.Component {
             name: this.taskName.value,
             description: this.taskDescription.value,
             priority: this.taskPriority.value,
-            status: this.taskStatus.value
+            status: this.taskStatus.value,
+            isNew: false
         }
         this.props.handleTaskItemUpdated(task);
     }
@@ -40,27 +41,27 @@ export default class TaskItemEditor extends React.Component {
                     <FormControl
                         inputRef={ref => { this.taskPriority = ref; }}
                         componentClass="select"
-                        placeholder="1"
+                        placeholder={enums.PRIORITY_ENUM.HIGH}
                         defaultValue={this.props.task.priority}>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option value={enums.PRIORITY_ENUM.HIGH}>1</option>
+                        <option value={enums.PRIORITY_ENUM.MEDIUM}>2</option>
+                        <option value={enums.PRIORITY_ENUM.LOW}>3</option>
                     </FormControl>
                 </td>
                 <td>
                     <FormControl
                         inputRef={ref => { this.taskStatus = ref; }}
                         componentClass="select"
-                        placeholder="TODO"
+                        placeholder={enums.STATUS_ENUM.TODO}
                         defaultValue={this.props.task.status}>
-                        <option value="Done">Done</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="TODO">TODO</option>
+                        <option value={enums.STATUS_ENUM.Done}>Done</option>
+                        <option value={enums.STATUS_ENUM.InProgress}>In Progress</option>
+                        <option value={enums.STATUS_ENUM.TODO}>TODO</option>
                     </FormControl>
                 </td>
                 <td>
                     <ButtonGroup>
-                        <Button bsStyle="success" onClick={this.onTaskItemUpdated}><i className="fa fa-floppy-o"></i></Button>
+                        <Button bsStyle="success" onClick={this.onTaskItemUpdated.bind(this)}><i className="fa fa-floppy-o"></i></Button>
                         <Button bsStyle="danger" onClick={this.props.toggleEditor}><i className="fa fa-ban"></i></Button>
                     </ButtonGroup>
                 </td>
