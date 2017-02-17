@@ -8,7 +8,7 @@ export default class TaskItemEditor extends React.Component {
         handleTaskItemUpdated: React.PropTypes.func.isRequired,
         toggleEditor: React.PropTypes.func.isRequired
     }
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     onTaskItemUpdated() {

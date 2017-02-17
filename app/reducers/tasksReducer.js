@@ -50,21 +50,32 @@ function fetchTasks(state, action) {
 }
 
 function generateId(list) {
-    if (list.length === 0){
+    if (list.length === 0) {
         return 1;
     }
     return _.maxBy(list, 'id').id + 1;
 }
 
 function addTask(state, action) {
-    let task = {
-        id: generateId(state.tasks),
-        name: '',
-        description: '',
-        status: enums.STATUS_ENUM.TODO,
-        priority: enums.PRIORITY_ENUM.LOW,
-        isNew: true
+    let task = {}
+    if (action.payload === null) {
+        task = {
+            id: generateId(state.tasks),
+            name: '',
+            description: '',
+            status: enums.STATUS_ENUM.TODO,
+            priority: enums.PRIORITY_ENUM.LOW,
+            isNew: true
+        }
     }
+    else{
+        task = {
+            ...action.payload,
+            id: generateId(state.tasks),
+            isNew: false
+        }
+    }
+
     return {
         ...state,
         tasks: state.tasks.concat(task)

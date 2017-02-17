@@ -14,10 +14,10 @@ export function deleteTask(id) {
     }
 }
 
-export function addTask(){
+export function addTask(task = null){
     return{
         type: actions.TASKS_ACTIONS.ADD_TASK,
-        payload: {}
+        payload: task
     }
 }
 

@@ -6,8 +6,8 @@ import TaskItemEditor from './TaskItemEditor'
 export default class TaskItem extends React.Component {
     static propTypes = {
         task: React.PropTypes.object.isRequired,
-        onTaskItemDelete: React.PropTypes.func.isRequired,
-        onTaskItemUpdate: React.PropTypes.func.isRequired
+        onTaskItemDeleted: React.PropTypes.func.isRequired,
+        onTaskItemUpdated: React.PropTypes.func.isRequired
     }
     constructor(props) {
         super(props);
@@ -16,11 +16,11 @@ export default class TaskItem extends React.Component {
         }
     }
     handleTaskItemUpdated(item) {
-        this.props.onTaskItemUpdate(item);
+        this.props.onTaskItemUpdated(item);
         this.toggleEditor();
     }
     handleTaskItemDeleted() {
-        this.props.onTaskItemDelete(this.props.task.id);
+        this.props.onTaskItemDeleted(this.props.task.id);
     }
     toggleEditor() {
         this.setState(prevState => ({
