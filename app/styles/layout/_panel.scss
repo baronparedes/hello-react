@@ -1,7 +1,7 @@
 /// <reference path="_variables.scss" />
 @import 'variables';
 .panel-custom>.panel-heading {
-    background-color: $secondary-bg-color;
+    background-color: $primary-bg-color;
     color: $contrast-font-color;
     background-image: '';
 }
@@ -9,9 +9,13 @@
     border-color: $secondary-bg-color;
     border-width: 1px;
 }
-
-.table-custom>thead{
+.modal-header{
+    background-color: $primary-bg-color;
+    color: $contrast-font-color;
+    background-image: '';
+}
+.modal-footer{
     background-color: $secondary-bg-color;
     color: $contrast-font-color;
-    font-weight: '';
+    background-image: '';
 }

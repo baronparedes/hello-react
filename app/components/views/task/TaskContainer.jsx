@@ -52,7 +52,7 @@ class TaskContainer extends React.Component {
                 </Button>
                 <TaskItemEditorModal
                     showModal={this.state.showModal}
-                    onTaskItemAdded={this.handleTaskItemAddFromModal.bind(this)}
+                    onTaskItemSaved={this.handleTaskItemAddFromModal.bind(this)}
                     onToggleModal={this.toggleModalEditor.bind(this)} />
             </div>
         );

@@ -68,8 +68,7 @@ function addTask(state, action) {
             priority: enums.PRIORITY_ENUM.LOW,
             isNew: true
         }
-    }
-    else{
+    } else {
         task = {
             ...action.payload,
             id: generateId(state.tasks),
@@ -91,6 +90,7 @@ function deleteTask(state, action) {
 }
 
 function updateTask(state, action) {
+    console.log("updating", action.payload);
     return Object.assign({}, state, {
         tasks: state.tasks.map((task, index) => {
             if (task.id === action.payload.id) {

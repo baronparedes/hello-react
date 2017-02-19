@@ -1,24 +1,38 @@
 import React from 'react';
 import { NavDropdown } from 'react-bootstrap/lib'
-import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
 import HighPriorityTasksBadge from '../views/highPriorityTasks/HighPriorityTasksBadge'
 import HighPriorityTasks from '../views/highPriorityTasks/HighPriorityTasks'
-import { connect } from 'react-redux'
-import * as hpTasksAction from '../../actions/highPriorityTasksActions'
+import TaskItemEditorModal from '../views/task/TaskItemEditorModal'
 
-class NavigationHighPriorityTasks extends React.Component {
+export default class NavigationHighPriorityTasks extends React.Component {
     static propTypes = {
-        tasks: React.PropTypes.array.isRequired
+        count: React.PropTypes.number.isRequired,
+        highPriorityTasks: React.PropTypes.array.isRequired,
+        activeTask: React.PropTypes.object.isRequired,
+        onSelectActiveTask: React.PropTypes.func.isRequired,
+        onTaskItemSaved: React.PropTypes.func.isRequired
     }
-    componentWillReceiveProps(nextProps) {
-        // if (nextProps.tasks !== this.props.tasks) {
-        //     this.props.dispatch(hpTasksAction.setHighPriorityTasks(nextProps.tasks));
-        // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            showModal: false
+        }
     }
     renderHighPriorityTasksBadge() {
         return (
             <HighPriorityTasksBadge count={this.props.count} />
         );
+    }
+    toggleModalEditor() {
+        this.setState({ showModal: !this.state.showModal });
+    }
+    handleTaskItemSaved(task){
+        this.props.onTaskItemSaved(task);
+        this.toggleModalEditor();
+    }
+    handleSelectActiveTask(task){
+        this.props.onSelectActiveTask(task);
+        this.toggleModalEditor();
     }
     render() {
         return (
@@ -26,17 +40,17 @@ class NavigationHighPriorityTasks extends React.Component {
                 eventKey={4}
                 title={this.renderHighPriorityTasksBadge()}
                 id="tasks-hp-nav-dropdown">
-                <HighPriorityTasks tasks={this.props.highPriorityTasks} />
+                <div className="tasks-hp-container pre-scrollable container">
+                    <HighPriorityTasks
+                    tasks={this.props.highPriorityTasks}
+                    onSelectActiveTask={this.handleSelectActiveTask.bind(this)} />
+                </div>
+                <TaskItemEditorModal
+                    task={this.props.activeTask}
+                    showModal={this.state.showModal}
+                    onTaskItemSaved={this.handleTaskItemSaved.bind(this)}
+                    onToggleModal={this.toggleModalEditor.bind(this)} />
             </NavDropdown>
         );
     }
 }
-
-export default connect(
-    (store) => {
-        return {
-            highPriorityTasks: store.highPriorityTasks.tasks,
-            count: store.highPriorityTasks.count
-        }
-    }
-)(NavigationHighPriorityTasks)

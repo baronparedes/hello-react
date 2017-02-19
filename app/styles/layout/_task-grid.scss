@@ -10,3 +10,9 @@
   width: 400px;
   padding-top: 10px;
 }
+
+.table-custom>thead{
+    background-color: $secondary-bg-color;
+    color: $contrast-font-color;
+    font-weight: '';
+}

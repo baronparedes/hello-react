@@ -7,9 +7,8 @@ const initialState = {
 }
 
 function setHighPriorityTasks(state, action) {
-    console.log('from reducer', action.payload);
     const highPriorityTasks = action.payload
-        .filter(task => task.priority === enums.PRIORITY_ENUM.HIGH);
+        .filter(task => task.priority == enums.PRIORITY_ENUM.HIGH);
     return {
         ...state,
         tasks: highPriorityTasks,

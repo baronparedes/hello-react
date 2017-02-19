@@ -1,16 +1,9 @@
 import React from 'react';
 import { Nav, Navbar, NavItem, NavbarHeader, NavDropdown, MenuItem, Brand } from 'react-bootstrap/lib'
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
-import HighPriorityTasksBadge from '../views/highPriorityTasks/HighPriorityTasksBadge'
-import HighPriorityTasks from '../views/highPriorityTasks/HighPriorityTasks'
-import { connect } from 'react-redux'
-import * as taskActions from '../../actions/tasksActions'
-import NavigationHighPriorityTasks from './NavigationHighPriorityTasks'
+import NavigationHighPriorityTasksContainer from './NavigationHighPriorityTasksContainer'
 
-class NavigationBar extends React.Component {
-    componentWillMount() {
-        this.props.dispatch(taskActions.fetchTasks());
-    }
+export default class NavigationBar extends React.Component {
     render() {
         return (
             <div className="nav-container">
@@ -38,7 +31,7 @@ class NavigationBar extends React.Component {
                             </NavDropdown>
                         </Nav>
                         <Nav pullRight>
-                            <NavigationHighPriorityTasks tasks={this.props.tasks} />
+                            <NavigationHighPriorityTasksContainer />
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -46,11 +39,3 @@ class NavigationBar extends React.Component {
         );
     }
 }
-
-export default connect(
-    (store) => {
-        return {
-            tasks: store.tasks.tasks,
-        }
-    }
-)(NavigationBar)

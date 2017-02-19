@@ -14,16 +14,23 @@ export function deleteTask(id) {
     }
 }
 
-export function addTask(task = null){
-    return{
+export function addTask(task = null) {
+    return {
         type: actions.TASKS_ACTIONS.ADD_TASK,
         payload: task
     }
 }
 
-export function updateTask(task){
-    return{
+export function updateTask(task) {
+    return {
         type: actions.TASKS_ACTIONS.UPDATE_TASK,
+        payload: task
+    }
+}
+
+export function selectTask(task) {
+    return {
+        type: actions.TASKS_ACTIONS.SELECT_TASK,
         payload: task
     }
 }

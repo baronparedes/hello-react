@@ -4,32 +4,57 @@ import * as enums from '../../../core/enums'
 
 export default class TaskItemEditorModal extends React.Component {
     static propTypes = {
-        onTaskItemAdded: React.PropTypes.func.isRequired,
-        onToggleModal: React.PropTypes.func.isRequired
+        onTaskItemSaved: React.PropTypes.func.isRequired,
+        onToggleModal: React.PropTypes.func.isRequired,
+        task: React.PropTypes.object
     }
-    initalizeFields() {
-        this.taskName.value = "";
-        this.taskDescription.value = "";
-        this.taskPriority.value = enums.PRIORITY_ENUM.HIGH;
-        this.taskStatus.value = enums.PRIORITY_ENUM.TODO;
+    constructor(props) {
+        super(props);
+        let task = {}
+        if (!this.props.task) {
+            task = {
+                id: null,
+                name: "",
+                description: "",
+                priority: enums.PRIORITY_ENUM.HIGH,
+                priority: enums.STATUS_ENUM.TODO,
+                isNew: true
+            }
+        }
+        else {
+            task = {
+                ...this.props.tasks,
+                isNew: false
+            };
+        }
+        this.state = {
+            task: task
+        }
     }
-    handleTaskItemAdded() {
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.task){
+            if (nextProps.task.id !== this.props.task.id) {
+                this.setState({ task: nextProps.task });
+            }
+        }
+    }
+    handleTaskItemSaved() {
         let task = {
             name: this.taskName.value,
             description: this.taskDescription.value,
             priority: this.taskPriority.value,
             status: this.taskStatus.value,
-            isNew: true
+            isNew: this.state.task.isNew,
+            id: this.state.task.id
         }
-        this.props.onTaskItemAdded(task);
+        this.props.onTaskItemSaved(task);
         this.props.onToggleModal();
-        this.initalizeFields();
     }
     render() {
         return (
             <Modal show={this.props.showModal} onHide={this.props.onToggleModal}>
                 <Modal.Header>
-                    <Modal.Title>Add New Task</Modal.Title>
+                    <Modal.Title>{(this.state.task.isNew) ? "Add New Task" : "Update Task"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Panel>
@@ -37,6 +62,7 @@ export default class TaskItemEditorModal extends React.Component {
                             <FormGroup controlId="formGroupTaskName">
                                 <ControlLabel>Name</ControlLabel>
                                 <FormControl
+                                    defaultValue={this.state.task.name}
                                     inputRef={ref => { this.taskName = ref; }}
                                     componentClass="input"
                                     placeholder="name" />
@@ -44,13 +70,15 @@ export default class TaskItemEditorModal extends React.Component {
                             <FormGroup controlId="formGroupTaskDescription">
                                 <ControlLabel>Description</ControlLabel>
                                 <FormControl
+                                    defaultValue={this.state.task.description}
                                     inputRef={ref => { this.taskDescription = ref; }}
                                     componentClass="input"
-                                    placeholder="name" />
+                                    placeholder="description" />
                             </FormGroup>
                             <FormGroup controlId="formGroupTaskPriority">
                                 <ControlLabel>Priority</ControlLabel>
                                 <FormControl
+                                    defaultValue={this.state.task.priority}
                                     inputRef={ref => { this.taskPriority = ref; }}
                                     componentClass="select"
                                     placeholder={enums.PRIORITY_ENUM.HIGH}>
@@ -62,6 +90,7 @@ export default class TaskItemEditorModal extends React.Component {
                             <FormGroup controlId="formGroupTaskStatus">
                                 <ControlLabel>Status</ControlLabel>
                                 <FormControl
+                                    defaultValue={this.state.task.status}
                                     inputRef={ref => { this.taskStatus = ref; }}
                                     componentClass="select"
                                     placeholder={enums.STATUS_ENUM.TODO}>
@@ -74,8 +103,8 @@ export default class TaskItemEditorModal extends React.Component {
                     </Panel>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button bsStyle="success" onClick={this.handleTaskItemAdded.bind(this)}>Save</Button>
-                    <Button onClick={this.props.onToggleModal}>Close</Button>
+                    <Button bsStyle="success" onClick={this.handleTaskItemSaved.bind(this)}>Save</Button>
+                    <Button bsStyle="danger" onClick={this.props.onToggleModal}>Close</Button>
                 </Modal.Footer>
             </Modal>
         );
