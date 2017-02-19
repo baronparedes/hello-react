@@ -1,4 +1,4 @@
-import * as actions from '../../../../core/actions'
+import * as actions from '../core/actions'
 
 export function fetchTasks() {
     return {

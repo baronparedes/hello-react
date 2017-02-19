@@ -1,3 +1,12 @@
+/// <reference path="_variables.scss" />
+
 .action-column{
   width: 100px;
+}
+
+.tasks-hp-container{
+  background-color: $plain-bg-color;
+  font: $site-font;
+  width: 400px;
+  padding-top: 10px;
 }

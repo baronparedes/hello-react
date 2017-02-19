@@ -2,13 +2,13 @@ import React from 'react';
 import { Table, Button, ButtonGroup } from 'react-bootstrap/lib'
 import TaskList from './TaskList'
 import { connect } from 'react-redux'
-import * as tasksActions from './actions/tasksActions'
+import * as tasksActions from '../../../actions/tasksActions'
 import TaskItemEditorModal from './TaskItemEditorModal'
 
-class TaskGrid extends React.Component {
-    constructor(props){
+class TaskContainer extends React.Component {
+    constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             showModal: false
         }
     }
@@ -24,15 +24,15 @@ class TaskGrid extends React.Component {
     handleTaskItemAddFromModal(task) {
         this.props.dispatch(tasksActions.addTask(task));
     }
-    toggleModalEditor() {
-        this.setState({ showModal: !this.state.showModal });
-    }
     handleTaskItemUpdate(task) {
         this.props.dispatch(tasksActions.updateTask(task));
     }
+    toggleModalEditor() {
+        this.setState({ showModal: !this.state.showModal });
+    }
     render() {
         return (
-            <div className="taskgrid-container">
+            <div className="task-grid-container">
                 <Table responsive striped bordered condensed hover className="table-custom table-taskgrid">
                     <thead>
                         <tr>
@@ -50,8 +50,8 @@ class TaskGrid extends React.Component {
                 <Button bsStyle="primary" onClick={this.toggleModalEditor.bind(this)}>
                     New Task
                 </Button>
-                <TaskItemEditorModal 
-                    showModal={this.state.showModal} 
+                <TaskItemEditorModal
+                    showModal={this.state.showModal}
                     onTaskItemAdded={this.handleTaskItemAddFromModal.bind(this)}
                     onToggleModal={this.toggleModalEditor.bind(this)} />
             </div>
@@ -65,4 +65,4 @@ export default connect(
             tasks: store.tasks.tasks,
         }
     }
-)(TaskGrid)
+)(TaskContainer)

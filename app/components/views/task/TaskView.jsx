@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PageContainer from '../../layout/PageContainer'
-import TaskGrid from './TaskGrid'
+import TaskContainer from './TaskContainer'
 import { Panel } from 'react-bootstrap/lib'
 
 export default class TaskView extends React.Component {
@@ -11,7 +11,7 @@ export default class TaskView extends React.Component {
         return (
             <PageContainer>
                 <Panel header={headerHtml} bsStyle="custom">
-                    <TaskGrid/>
+                    <TaskContainer/>
                 </Panel>
             </PageContainer>
         );

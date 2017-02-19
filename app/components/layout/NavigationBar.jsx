@@ -1,10 +1,16 @@
-'use strict';
-
 import React from 'react';
 import { Nav, Navbar, NavItem, NavbarHeader, NavDropdown, MenuItem, Brand } from 'react-bootstrap/lib'
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
+import HighPriorityTasksBadge from '../views/highPriorityTasks/HighPriorityTasksBadge'
+import HighPriorityTasks from '../views/highPriorityTasks/HighPriorityTasks'
+import { connect } from 'react-redux'
+import * as taskActions from '../../actions/tasksActions'
+import NavigationHighPriorityTasks from './NavigationHighPriorityTasks'
 
-export default class NavigationBar extends React.Component {
+class NavigationBar extends React.Component {
+    componentWillMount() {
+        this.props.dispatch(taskActions.fetchTasks());
+    }
     render() {
         return (
             <div className="nav-container">
@@ -32,8 +38,7 @@ export default class NavigationBar extends React.Component {
                             </NavDropdown>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Link Right</NavItem>
-                            <NavItem eventKey={2} href="#">Link Right</NavItem>
+                            <NavigationHighPriorityTasks tasks={this.props.tasks} />
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -41,3 +46,11 @@ export default class NavigationBar extends React.Component {
         );
     }
 }
+
+export default connect(
+    (store) => {
+        return {
+            tasks: store.tasks.tasks,
+        }
+    }
+)(NavigationBar)

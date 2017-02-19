@@ -2,6 +2,7 @@ import _ from 'lodash'
 import * as actions from '../core/actions'
 import * as enums from '../core/enums'
 
+
 const data = [{
         id: "1",
         name: "Week 1 Task",
