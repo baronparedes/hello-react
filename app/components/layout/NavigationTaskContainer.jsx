@@ -2,9 +2,11 @@ import React from 'react'
 import * as hpTasksAction from '../../actions/highPriorityTasksActions'
 import * as tasksAction from '../../actions/tasksActions'
 import { connect } from 'react-redux'
+import { Nav, NavItem } from 'react-bootstrap/lib'
 import NavigationHighPriorityTasks from './NavigationHighPriorityTasks';
+import TaskItemCreator from '../views/task/TaskItemCreator'
 
-class NavigationHighPriorityTasksContainer extends React.Component {
+class NavigationTaskContainer extends React.Component {
     componentWillMount() {
         this.props.dispatch(tasksAction.fetchTasks());
     }
@@ -13,20 +15,29 @@ class NavigationHighPriorityTasksContainer extends React.Component {
             this.props.dispatch(hpTasksAction.setHighPriorityTasks(nextProps.tasks));
         }
     }
-    selectActiveTask(task){
+    selectActiveTask(task) {
         this.props.dispatch(tasksAction.selectTask(task));
     }
-    updateTask(task){
+    handleTaskItemUpdate(task) {
         this.props.dispatch(tasksAction.updateTask(task))
+    }
+    handleTaskItemSaved(task) {
+        this.props.dispatch(tasksAction.addTask(task));
     }
     render() {
         return (
-            <NavigationHighPriorityTasks 
-                activeTask={this.props.activeTask}
-                onSelectActiveTask={this.selectActiveTask.bind(this)}
-                onTaskItemSaved={this.updateTask.bind(this)}
-                highPriorityTasks={this.props.highPriorityTasks} 
-                count={this.props.count} />
+            <Nav pullRight>
+                <NavItem>
+                    <TaskItemCreator bsSize="xsmall" onTaskItemSaved={this.handleTaskItemSaved.bind(this)} />
+                </NavItem>
+                <NavigationHighPriorityTasks
+                    activeTask={this.props.activeTask}
+                    highPriorityTasks={this.props.highPriorityTasks}
+                    count={this.props.count}
+                    onSelectActiveTask={this.selectActiveTask.bind(this)}
+                    onTaskItemSaved={this.handleTaskItemUpdate.bind(this)}
+                />
+            </Nav>
         )
     }
 }
@@ -40,4 +51,4 @@ export default connect(
             activeTask: store.activeTask
         }
     }
-)(NavigationHighPriorityTasksContainer)
+)(NavigationTaskContainer)

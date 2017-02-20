@@ -18,11 +18,6 @@ export default class NavigationHighPriorityTasks extends React.Component {
             showModal: false
         }
     }
-    renderHighPriorityTasksBadge() {
-        return (
-            <HighPriorityTasksBadge count={this.props.count} />
-        );
-    }
     toggleModalEditor() {
         this.setState({ showModal: !this.state.showModal });
     }
@@ -35,10 +30,11 @@ export default class NavigationHighPriorityTasks extends React.Component {
         this.toggleModalEditor();
     }
     render() {
+        const header = <HighPriorityTasksBadge count={this.props.count} />;
         return (
             <NavDropdown
                 eventKey={4}
-                title={this.renderHighPriorityTasksBadge()}
+                title={header}
                 id="tasks-hp-nav-dropdown">
                 <div className="tasks-hp-container pre-scrollable container">
                     <HighPriorityTasks

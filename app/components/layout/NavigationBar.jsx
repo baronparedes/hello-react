@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavItem, NavbarHeader, NavDropdown, MenuItem, Brand } from 'react-bootstrap/lib'
 import { LinkContainer, IndexLinkContainer } from 'react-router-bootstrap'
-import NavigationHighPriorityTasksContainer from './NavigationHighPriorityTasksContainer'
+import NavigationTaskContainer from './NavigationTaskContainer'
 
 export default class NavigationBar extends React.Component {
     render() {
@@ -30,9 +30,7 @@ export default class NavigationBar extends React.Component {
                                 <MenuItem eventKey={3.3}>Separated link</MenuItem>
                             </NavDropdown>
                         </Nav>
-                        <Nav pullRight>
-                            <NavigationHighPriorityTasksContainer />
-                        </Nav>
+                        <NavigationTaskContainer />
                     </Navbar.Collapse>
                 </Navbar>
             </div>
