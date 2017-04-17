@@ -18,13 +18,13 @@ export default class HighPriorityTasks extends React.Component {
         }
         return this.props.tasks.map((task) => {
             const header = 
-                <h2>
+                <div>
                     <SelectTaskButtonContainer task={task} />
                     <Button bsStyle="link" 
                         onClick={this.handleTaskClick.bind(this, task)}>
                         {task.name}
                     </Button>
-                </h2>;
+                </div>;
 
             return (
                 <ListGroupItem 
