@@ -8,7 +8,7 @@ const data = [{
         name: "Week 1 Task",
         description: "Create header, body, and footer react components.",
         priority: enums.PRIORITY_ENUM.LOW,
-        status: "Done"
+        status: enums.STATUS_ENUM.TODO
     },
     {
         id: "2",
@@ -29,7 +29,7 @@ const data = [{
         name: "Week 4 Task",
         description: "Update to ES6",
         priority: enums.PRIORITY_ENUM.HIGH,
-        status: enums.STATUS_ENUM.Done
+        status: enums.STATUS_ENUM.TODO
     },
     {
         id: "5",

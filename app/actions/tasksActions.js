@@ -34,3 +34,17 @@ export function selectTask(task) {
         payload: task
     }
 }
+
+export function activeTask(task){
+    return {
+        type: actions.TASKS_ACTIONS.ACTIVE_TASK,
+        payload: task
+    }
+}
+
+export function setFilteredTasks(tasks) {
+    return {
+        type: actions.TASKS_ACTIONS.SET_FILTERED_TASKS,
+        payload: tasks
+    }
+}

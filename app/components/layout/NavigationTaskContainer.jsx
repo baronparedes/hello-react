@@ -1,5 +1,4 @@
 import React from 'react'
-import * as hpTasksAction from '../../actions/highPriorityTasksActions'
 import * as tasksAction from '../../actions/tasksActions'
 import { connect } from 'react-redux'
 import { Nav, NavItem } from 'react-bootstrap/lib'
@@ -12,11 +11,11 @@ class NavigationTaskContainer extends React.Component {
     }
     componentWillReceiveProps(nextProps) {
         if (nextProps.tasks !== this.props.tasks) {
-            this.props.dispatch(hpTasksAction.setHighPriorityTasks(nextProps.tasks));
+            this.props.dispatch(tasksAction.setFilteredTasks(nextProps.tasks));
         }
     }
-    selectActiveTask(task) {
-        this.props.dispatch(tasksAction.selectTask(task));
+    activeTask(task) {
+        this.props.dispatch(tasksAction.activeTask(task));
     }
     handleTaskItemUpdate(task) {
         this.props.dispatch(tasksAction.updateTask(task))
@@ -34,7 +33,7 @@ class NavigationTaskContainer extends React.Component {
                     activeTask={this.props.activeTask}
                     highPriorityTasks={this.props.highPriorityTasks}
                     count={this.props.count}
-                    onSelectActiveTask={this.selectActiveTask.bind(this)}
+                    onActiveTask={this.activeTask.bind(this)}
                     onTaskItemSaved={this.handleTaskItemUpdate.bind(this)}
                 />
             </Nav>
@@ -46,8 +45,8 @@ export default connect(
     (store) => {
         return {
             tasks: store.tasks.tasks,
-            highPriorityTasks: store.highPriorityTasks.tasks,
-            count: store.highPriorityTasks.count,
+            highPriorityTasks: store.filteredTasks.highPriorityTasks,
+            count: store.filteredTasks.highPriorityTasksCount,
             activeTask: store.activeTask
         }
     }

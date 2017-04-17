@@ -1,20 +1,20 @@
-'use strict';
-
 import React from 'react';
-import CardList from './CardList'
-import HeaderInfo from '../../layout/HeaderInfo'
-import { Panel } from 'react-bootstrap/lib'
+import { Jumbotron, Buttonm, Panel } from 'react-bootstrap/lib'
+import TimerContainer from '../timer/TimerContainer'
+import IncompleteTasksContainer from '../incompleteTasks/IncompleteTasksContainer'
 
 export default class HomeView extends React.Component {
     render() {
         return (
             <div>
-                <HeaderInfo />
-                <Panel className="container">
-                    Section
-                </Panel>
-                <CardList />
-                <CardList />
+                <div id="hero-header">
+                    <Jumbotron>
+                        <TimerContainer />
+                    </Jumbotron>
+                </div>
+                <div className="container">
+                    <IncompleteTasksContainer />
+                </div>
             </div>
         );
     }

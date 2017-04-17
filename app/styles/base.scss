@@ -32,3 +32,35 @@ div {
 .push-bottom{
   padding-top: 20px;
 }
+
+.spacer{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.no-padding{
+  padding: none;
+}
+
+.timer{
+  color: black;
+  .panel-body{
+    h1{
+      font-size: 96px;
+      padding-bottom: 20px;
+      color: green;
+    }
+  }
+}
+
+.selected-task{
+  p{
+    font-size: 16px;
+  }
+}
+
+.todo-task{
+  button{
+    float: right;
+  }
+}

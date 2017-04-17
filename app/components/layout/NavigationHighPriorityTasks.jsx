@@ -6,10 +6,8 @@ import TaskItemEditorModal from '../views/task/TaskItemEditorModal'
 
 export default class NavigationHighPriorityTasks extends React.Component {
     static propTypes = {
-        count: React.PropTypes.number.isRequired,
-        highPriorityTasks: React.PropTypes.array.isRequired,
         activeTask: React.PropTypes.object.isRequired,
-        onSelectActiveTask: React.PropTypes.func.isRequired,
+        onActiveTask: React.PropTypes.func.isRequired,
         onTaskItemSaved: React.PropTypes.func.isRequired
     }
     constructor(props) {
@@ -25,8 +23,8 @@ export default class NavigationHighPriorityTasks extends React.Component {
         this.props.onTaskItemSaved(task);
         this.toggleModalEditor();
     }
-    handleSelectActiveTask(task){
-        this.props.onSelectActiveTask(task);
+    handleActiveTask(task){
+        this.props.onActiveTask(task);
         this.toggleModalEditor();
     }
     render() {
@@ -39,7 +37,7 @@ export default class NavigationHighPriorityTasks extends React.Component {
                 <div className="tasks-hp-container pre-scrollable container">
                     <HighPriorityTasks
                     tasks={this.props.highPriorityTasks}
-                    onSelectActiveTask={this.handleSelectActiveTask.bind(this)} />
+                    onSelectActiveTask={this.handleActiveTask.bind(this)} />
                 </div>
                 <TaskItemEditorModal
                     task={this.props.activeTask}

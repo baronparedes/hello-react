@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import tasks from './tasksReducer'
-import highPriorityTasks from './highPriorityTasksReducer'
-import activeTask from './activeTask'
+import filteredTasks from './filteredTasksReducer'
+import activeTask from './activeTaskReducer'
+import selectedTask from './selectedTaskReducer'
 
 export default combineReducers({
     activeTask,
+    selectedTask,
     tasks,
-    highPriorityTasks
+    filteredTasks
 });

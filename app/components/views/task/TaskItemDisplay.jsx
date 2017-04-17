@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, ButtonGroup, FormControl } from 'react-bootstrap/lib'
+import SelectTaskButtonContainer from './SelectTaskButtonContainer'
+import * as enums from '../../../core/enums'
 
 export default class TaskItemDisplay extends React.Component {
     static propTypes = {
@@ -8,6 +10,10 @@ export default class TaskItemDisplay extends React.Component {
         toggleEditor: React.PropTypes.func.isRequired
     }
     render() {
+        let selectButton = null;
+        if (this.props.task.status != enums.STATUS_ENUM.Done) {
+            selectButton = <SelectTaskButtonContainer task={this.props.task}/>;
+        }
         return (
             <tr>
                 <td>
@@ -20,6 +26,7 @@ export default class TaskItemDisplay extends React.Component {
                     <ButtonGroup>
                         <Button bsStyle="primary" onClick={this.props.toggleEditor}><i className="fa fa-pencil"></i></Button>
                         <Button bsStyle="danger" onClick={this.props.handleTaskItemDeleted}><i className="fa fa-trash"></i></Button>
+                        {selectButton}
                     </ButtonGroup>
                 </td>
             </tr>
