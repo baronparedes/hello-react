@@ -6,20 +6,20 @@ const TimerControls = (props) => {
     if (props.showCompleted) {
         completedButton = (
             <span className="spacer">
-                <Button bsStyle="primary">Complete</Button>
+                <Button bsStyle="primary" onClick={props.onCompleteTask}>Complete</Button>
             </span>
         );
     }
     return (
         <div className="container-fluid">
             <span className="spacer">
-                <Button bsStyle="success">Start</Button>
+                <Button bsStyle="success" onClick={props.onStartTimer}>Start</Button>
             </span>
             <span className="spacer">
-                <Button bsStyle="danger">Stop</Button>
+                <Button bsStyle="danger" onClick={props.onStopTimer}>Stop</Button>
             </span>
             <span className="spacer">
-                <Button bsStyle="warning">Reset</Button>
+                <Button bsStyle="warning" onClick={props.onResetTimer}>Reset</Button>
             </span>
             {completedButton}
         </div>

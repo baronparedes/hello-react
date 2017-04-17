@@ -45,6 +45,7 @@ export default class TaskItemEditorModal extends React.Component {
             priority: this.taskPriority.value,
             status: this.taskStatus.value,
             isNew: this.state.task.isNew,
+            elapsedTime: this.state.task.elapsedTime,
             id: this.state.task.id
         }
         this.props.onTaskItemSaved(task);

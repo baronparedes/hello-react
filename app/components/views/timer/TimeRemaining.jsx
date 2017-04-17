@@ -1,10 +1,10 @@
 import React from 'react';
+import * as h from '../../../core/helpers'
 
 const TimeRemaining = (props) => {
-    console.log(props.timer);
     return (
         <h1>
-            {props.timer.interval}
+            {h.format(props.interval)}
         </h1>
     );
 };

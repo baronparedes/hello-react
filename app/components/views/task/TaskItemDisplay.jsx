@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, ButtonGroup, FormControl } from 'react-bootstrap/lib'
 import SelectTaskButtonContainer from './SelectTaskButtonContainer'
 import * as enums from '../../../core/enums'
+import * as h from '../../../core/helpers'
 
 export default class TaskItemDisplay extends React.Component {
     static propTypes = {
@@ -20,6 +21,7 @@ export default class TaskItemDisplay extends React.Component {
                     <h4>{this.props.task.name}</h4>
                     <small>{this.props.task.description}</small>
                 </td>
+                <td>{h.format(this.props.task.elapsedTime)}</td>
                 <td>{this.props.task.priority}</td>
                 <td>{this.props.task.status}</td>
                 <td>

@@ -19,6 +19,8 @@ const timerTypes = [
 const initialState = {
     timerTypes,
     selectedTimer: timerTypes.find(_ => _.type === enums.TIMER_TYPE_ENUM.Promodoro),
+    timeLeft: timerTypes.find(_ => _.type === enums.TIMER_TYPE_ENUM.Promodoro).interval,
+    ticking: false,
 }
 
 export default function (state = initialState, action) {
@@ -26,7 +28,28 @@ export default function (state = initialState, action) {
         case actions.TIMER_ACTIONS.SELECT_TIMER:
             return {
                 ...state,
-                selectedTimer: action.payload
+                selectedTimer: action.payload,
+                timeLeft: action.payload.interval
+            }
+        case actions.TIMER_ACTIONS.TIMER_TICK:
+            return {
+                ...state,
+                timeLeft: (state.timeLeft === 0) ? 0 : state.timeLeft--
+            }
+        case actions.TIMER_ACTIONS.TIMER_RESET:
+            return {
+                ...state,
+                timeLeft: state.selectedTimer.interval
+            }
+        case actions.TIMER_ACTIONS.TIMER_START:
+            return {
+                ...state,
+                ticking: true
+            }
+        case actions.TIMER_ACTIONS.TIMER_STOP:
+            return {
+                ...state,
+                ticking: false
             }
         default:
             return state;

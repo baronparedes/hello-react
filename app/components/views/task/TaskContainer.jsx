@@ -29,6 +29,7 @@ class TaskContainer extends React.Component {
                     <thead>
                         <tr>
                             <th>Task Details</th>
+                            <th>Elapsed Time</th>
                             <th>Priority</th>
                             <th>Status</th>
                             <th className="action-column"></th>

@@ -15,6 +15,7 @@ export default class TaskItemEditor extends React.Component {
             description: this.taskDescription.value,
             priority: this.taskPriority.value,
             status: this.taskStatus.value,
+            elapsedTime: this.props.task.elapsedTime,
             isNew: false
         }
         this.props.handleTaskItemUpdated(task);

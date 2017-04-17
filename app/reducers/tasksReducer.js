@@ -117,6 +117,7 @@ export default function (state = initialState, action) {
             return addTask(state, action);
         case actions.TASKS_ACTIONS.DELETE_TASK:
             return deleteTask(state, action);
+        case actions.TASKS_ACTIONS.SELECT_TASK:
         case actions.TASKS_ACTIONS.UPDATE_TASK:
             return updateTask(state, action);
         default:

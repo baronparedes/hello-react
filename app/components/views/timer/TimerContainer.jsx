@@ -10,8 +10,25 @@ import TaskCard from '../task/TaskCard'
 import RedirectToTasksButton from '../task/RedirectToTasksButton'
 
 class TimerContainer extends Component {
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.timeLeft === 0) {
+            alert("time us up!");
+        }
+    }
     handleSelectTimer(timer) {
         this.props.dispatch(timerActions.selectTimer(timer));
+    }
+    handleStartTimer() {
+        this.props.dispatch(timerActions.startTimer());
+    }
+    handleStopTimer() {
+        this.props.dispatch(timerActions.stopTimer());
+    }
+    handleResetTimer() {
+        this.props.dispatch(timerActions.resetTimer());
+    }
+    handleCompleteTask() {
+        alert('complete task')
     }
     render() {
         const promodoro = this.props.timerTypes.find(_ => _.type === enums.TIMER_TYPE_ENUM.Promodoro);
@@ -24,10 +41,16 @@ class TimerContainer extends Component {
                         promodoro={promodoro}
                         shortBreak={shortBreak}
                         longBreak={longBreak}
-                        onSelectTimer={this.handleSelectTimer.bind(this)}
+                        onSelectTimer={this.handleSelectTimer.bind(this)} />
+                    <TimeRemaining
+                        interval={this.props.timeLeft} />
+                    <TimerControls
+                        showCompleted={this.selectedTask !== null}
+                        onStartTimer={this.handleStartTimer.bind(this)}
+                        onStopTimer={this.handleStopTimer.bind(this)}
+                        onResetTimer={this.handleResetTimer.bind(this)}
+                        onCompleteTask={this.handleCompleteTask.bind(this)}
                     />
-                    <TimeRemaining timer={this.props.selectedTimer} />
-                    <TimerControls showCompleted={this.props.selectedTask !== null} />
                 </div>
                 <br />
                 <div className="container-fluid">
@@ -47,13 +70,13 @@ class TimerContainer extends Component {
     }
 }
 
-
 export default connect(
     (store) => {
         return {
             selectedTask: store.selectedTask,
             selectedTimer: store.timer.selectedTimer,
-            timerTypes: store.timer.timerTypes
+            timerTypes: store.timer.timerTypes,
+            timeLeft: store.timer.timeLeft
         }
     }
 )(TimerContainer)

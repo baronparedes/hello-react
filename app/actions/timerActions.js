@@ -13,3 +13,24 @@ export function selectTimer(timer) {
         payload: timer
     }
 }
+
+export function resetTimer(){
+    return {
+        type: actions.TIMER_ACTIONS.TIMER_RESET,
+        payload: {}
+    }
+}
+
+export function startTimer(){
+    return {
+        type: actions.TIMER_ACTIONS.TIMER_START,
+        payload: {}
+    }
+}
+
+export function stopTimer(){
+    return {
+        type: actions.TIMER_ACTIONS.TIMER_STOP,
+        payload: {}
+    }
+}
