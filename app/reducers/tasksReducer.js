@@ -78,6 +78,7 @@ function addTask(state, action) {
         task = {
             ...action.payload,
             id: generateId(state.tasks),
+            elapsedTime: 0,
             isNew: false
         }
     }

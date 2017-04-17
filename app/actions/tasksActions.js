@@ -31,9 +31,15 @@ export function updateTask(task) {
 }
 
 export function selectTask(task) {
-    return {
-        type: actions.TASKS_ACTIONS.SELECT_TASK,
-        payload: task
+    return (dispatch) => {
+        dispatch({
+            type: actions.TASKS_ACTIONS.SELECT_TASK,
+            payload: task
+        })
+        dispatch(updateTask({
+            ...task,
+            status: enums.STATUS_ENUM.InProgress
+        }))
     }
 }
 
