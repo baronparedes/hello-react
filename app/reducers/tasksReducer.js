@@ -8,35 +8,40 @@ const data = [{
         name: "Week 1 Task",
         description: "Create header, body, and footer react components.",
         priority: enums.PRIORITY_ENUM.LOW,
-        status: enums.STATUS_ENUM.TODO
+        status: enums.STATUS_ENUM.TODO,
+        elapsedTime: 0,
     },
     {
         id: "2",
         name: "Week 2 Task",
         description: "Create a task grid.",
         priority: enums.PRIORITY_ENUM.MEDIUM,
-        status: enums.STATUS_ENUM.Done
+        status: enums.STATUS_ENUM.Done,
+        elapsedTime: 0,
     },
     {
         id: "3",
         name: "Week 3 Task",
         description: "Update task grid to have CRUD",
         priority: enums.PRIORITY_ENUM.HIGH,
-        status: enums.STATUS_ENUM.Done
+        status: enums.STATUS_ENUM.Done,
+        elapsedTime: 0,
     },
     {
         id: "4",
         name: "Week 4 Task",
         description: "Update to ES6",
         priority: enums.PRIORITY_ENUM.HIGH,
-        status: enums.STATUS_ENUM.TODO
+        status: enums.STATUS_ENUM.TODO,
+        elapsedTime: 0,
     },
     {
         id: "5",
         name: "Week 5 Task",
         description: "Apply FLUX/REDUX",
         priority: enums.PRIORITY_ENUM.HIGH,
-        status: enums.STATUS_ENUM.InProgress
+        status: enums.STATUS_ENUM.InProgress,
+        elapsedTime: 0,
     }
 ]
 const initialState = {
@@ -66,6 +71,7 @@ function addTask(state, action) {
             description: '',
             status: enums.STATUS_ENUM.TODO,
             priority: enums.PRIORITY_ENUM.LOW,
+            elapsedTime: 0,
             isNew: true
         }
     } else {

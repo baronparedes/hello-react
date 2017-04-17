@@ -1,9 +1,10 @@
 import React from 'react';
 
 const TimeRemaining = (props) => {
+    console.log(props.timer);
     return (
         <h1>
-            {props.timeRemaining}
+            {props.timer.interval}
         </h1>
     );
 };

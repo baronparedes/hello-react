@@ -9,3 +9,9 @@ export const STATUS_ENUM = {
     InProgress: "In Progress",
     Done: "Done"
 }
+
+export const TIMER_TYPE_ENUM = {
+    Promodoro: "Promodoro",
+    ShortBreak: "Short Break",
+    LongBreak: "Long Break"
+}

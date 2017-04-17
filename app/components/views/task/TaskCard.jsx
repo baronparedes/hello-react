@@ -5,14 +5,17 @@ import SelectTaskButtonContainer from './SelectTaskButtonContainer'
 const TaskCard = (props) => {
     let selectButton = null;
     if (props.selectable === true) {
-        selectButton = <SelectTaskButtonContainer task={props.task}/>;
+        selectButton = <SelectTaskButtonContainer task={props.task} />;
     }
     return (
         <Well bsSize="sm" className={"thumbnail " + props.className}>
-            <div>
-                <h3>{props.task.name}</h3>
-                {selectButton}
-            </div>
+            <h2>
+                <div>
+                    {selectButton}
+                    <span className="spacer" />
+                    {props.task.name}
+                </div>
+            </h2>
             <p>{props.task.description}</p>
         </Well>
     );
