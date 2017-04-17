@@ -1,18 +1,18 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import AppHome from './AppHome'
-import HomeView from './views/home/HomeView'
+import DashboardView from './views/dashboard/DashboardView'
 import TaskView from './views/task/TaskView'
 
-export default class AppRouter extends React.Component {
-    render() {
-        return (
-            <Router history={browserHistory}>
-                <Route path="/" component={AppHome}>
-                    <IndexRoute component={HomeView}></IndexRoute>
-                    <Route path="tasks" component={TaskView}></Route>
-                </Route>
-            </Router>
-        );
-    }
-}
+const AppRouter = () => {
+    return (
+        <Router history={browserHistory}>
+            <Route path="/" component={AppHome}>
+                <IndexRoute component={DashboardView}></IndexRoute>
+                <Route path="tasks" component={TaskView}></Route>
+            </Route>
+        </Router>
+    );
+};
+
+export default AppRouter;

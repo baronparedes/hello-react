@@ -1,14 +1,14 @@
 import React from 'react';
 
-export default class HighPriorityTasksBadge extends React.Component {
-    render() {
-        return (
-            <span>
+const HighPriorityTasksBadge = (props) => {
+    return (
+        <span>
                 High Priority Tasks
                 <span className="badge badge-warning">
-                    {!!!this.props.count ? "0" : this.props.count}
-                </span>
+                {!!!props.count ? "0" : props.count}
             </span>
-        );
-    }
-}
+        </span>
+    );
+};
+
+export default HighPriorityTasksBadge;

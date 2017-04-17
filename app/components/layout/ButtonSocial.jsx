@@ -1,14 +1,13 @@
 import React from 'react';
 
-export default class PageSection extends React.Component {
-    render() {
-        return (
-            <div className="icon-container">
-                <a target="_blank" href={this.props.href} className="btn-social btn-outline">
-                    <i className={this.props.fa}></i>
-                </a>
-            </div>
+const ButtonSocial = (props) => {
+    return (
+        <div className="icon-container">
+            <a target="_blank" href={props.href} className="btn-social btn-outline">
+                <i className={props.fa}></i>
+            </a>
+        </div>
+    );
+};
 
-        );
-    }
-}
+export default ButtonSocial;
