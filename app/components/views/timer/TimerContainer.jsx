@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Panel } from 'react-bootstrap/lib'
 import * as timerActions from '../../../actions/timerActions'
+import * as taskActions from '../../../actions/tasksActions'
 import * as enums from '../../../core/enums'
 import TimerTypes from './TimerTypes'
 import TimeRemaining from './TimeRemaining'
@@ -28,7 +29,8 @@ class TimerContainer extends Component {
         this.props.dispatch(timerActions.resetTimer());
     }
     handleCompleteTask() {
-        alert('complete task')
+        // this.props.dispatch(timerActions.stopTimer());
+        this.props.dispatch(taskActions.completeTask());
     }
     render() {
         const promodoro = this.props.timerTypes.find(_ => _.type === enums.TIMER_TYPE_ENUM.Promodoro);
@@ -45,7 +47,7 @@ class TimerContainer extends Component {
                     <TimeRemaining
                         interval={this.props.timeLeft} />
                     <TimerControls
-                        showCompleted={this.selectedTask !== null}
+                        showCompleted={this.props.selectedTask !== null}
                         onStartTimer={this.handleStartTimer.bind(this)}
                         onStopTimer={this.handleStopTimer.bind(this)}
                         onResetTimer={this.handleResetTimer.bind(this)}

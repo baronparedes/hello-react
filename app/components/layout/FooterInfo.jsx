@@ -6,8 +6,8 @@ export default class FooterInfo extends React.Component {
     return (
       <footer className="text-center footer">
         <div className="footer-above">
-          <ButtonSocial href="#" fa="fa fa-facebook fa-fw"></ButtonSocial>
-          <ButtonSocial href="#" fa="fa fa-twitter fa-fw"></ButtonSocial>
+          <ButtonSocial href="http://www.facebook.com" fa="fa fa-facebook fa-fw"></ButtonSocial>
+          <ButtonSocial href="http://www.twitter.com" fa="fa fa-twitter fa-fw"></ButtonSocial>
           <ButtonSocial href="https://github.com/baronparedes/hello-react" fa="fa fa-github fa-fw"></ButtonSocial>
         </div>
         <div className="footer-below">

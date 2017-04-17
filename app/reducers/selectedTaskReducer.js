@@ -1,10 +1,11 @@
 import * as actions from '../core/actions'
 import * as enums from '../core/enums'
 
-function timerTick(state, action){
+function timerTick(state, action) {
+    if (state === null) return state;
     return {
         ...state,
-        elapsedTime: state.elapsedTime++
+        elapsedTime: action.payload.elapsedTime + 1
     }
 }
 
@@ -15,6 +16,8 @@ export default function (state = null, action) {
                 ...state,
                 ...action.payload
             }
+        case actions.TASKS_ACTIONS.UNSELECT_TASK:
+            return null;
         case actions.TIMER_ACTIONS.TIMER_TICK:
             return timerTick(state, action);
     }

@@ -32,9 +32,10 @@ export default function (state = initialState, action) {
                 timeLeft: action.payload.interval
             }
         case actions.TIMER_ACTIONS.TIMER_TICK:
+            console.log(action);
             return {
                 ...state,
-                timeLeft: (state.timeLeft === 0) ? 0 : state.timeLeft--
+                timeLeft: (action.payload === 0) ? 0 : action.payload.timeLeft - 1
             }
         case actions.TIMER_ACTIONS.TIMER_RESET:
             return {

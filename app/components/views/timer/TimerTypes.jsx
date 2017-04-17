@@ -4,15 +4,15 @@ import { Panel, ButtonGroup, Button } from 'react-bootstrap/lib'
 const TimerTypes = (props) => {
     return (
         <ButtonGroup bsSize="large">
-            <Button bsStyle="success"
+            <Button bsStyle="primary"
                 onClick={() => { props.onSelectTimer(props.promodoro) }}>
                 {props.promodoro.type}
             </Button>
-            <Button bsStyle="success"
+            <Button bsStyle="primary"
                 onClick={() => { props.onSelectTimer(props.shortBreak) }}>
                 {props.shortBreak.type}
             </Button>
-            <Button bsStyle="success"
+            <Button bsStyle="primary"
                 onClick={() => { props.onSelectTimer(props.longBreak) }}>
                 {props.longBreak.type}
             </Button>

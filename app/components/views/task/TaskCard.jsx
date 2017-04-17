@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Well } from 'react-bootstrap/lib'
 import SelectTaskButtonContainer from './SelectTaskButtonContainer'
+import * as h from '../../../core/helpers'
 
 const TaskCard = (props) => {
     let selectButton = null;
@@ -17,6 +18,9 @@ const TaskCard = (props) => {
                 </div>
             </h2>
             <p>{props.task.description}</p>
+            <h5>
+                Elapsed Time: { h.format(props.task.elapsedTime) }
+            </h5>
         </Well>
     );
 };

@@ -1,4 +1,6 @@
 import * as actions from '../core/actions'
+import * as enums from '../core/enums'
+import * as timerActions from './timerActions'
 
 export function fetchTasks() {
     return {
@@ -35,10 +37,27 @@ export function selectTask(task) {
     }
 }
 
-export function activeTask(task){
+export function activeTask(task) {
     return {
         type: actions.TASKS_ACTIONS.ACTIVE_TASK,
         payload: task
+    }
+}
+
+export function completeTask() {
+    return (dispatch, getState) => {
+        const selectedTask = getState().selectedTask;
+        if (selectedTask !== null) {
+            dispatch(timerActions.stopTimer());
+            dispatch({
+                type: actions.TASKS_ACTIONS.UNSELECT_TASK,
+                payload: {}
+            })
+            dispatch(updateTask({
+                ...selectedTask,
+                status: enums.STATUS_ENUM.Done
+            }));
+        }
     }
 }
 
