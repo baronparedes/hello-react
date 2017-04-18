@@ -4,7 +4,7 @@ import NavigationBar from './layout/NavigationBar'
 
 const AppHome = (props) => {
     return (
-        <div>
+        <div id="page-top">
             <NavigationBar />
             <div id="app-content">
                 {props.children}

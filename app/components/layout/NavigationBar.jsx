@@ -9,7 +9,7 @@ const NavigationBar = () => {
             <Navbar className="navbar-custom navbar-fixed-top" role="navigation" collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">Magenic Masters - React JS</a>
+                        <a href="#page-top">Magenic Masters - React JS</a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
