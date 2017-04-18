@@ -37,7 +37,7 @@ export default class HighPriorityTasks extends React.Component {
     }
     render() {
         return (
-            <ListGroup>
+            <ListGroup className="tasks-hp-container pre-scrollable">
                 <ListGroupItem bsStyle="info">
                     <RedirectToTasksButton />
                 </ListGroupItem>

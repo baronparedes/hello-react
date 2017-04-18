@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, ButtonGroup, FormControl } from 'react-bootstrap/lib'
 import * as enums from '../../../core/enums'
+import * as h from '../../../core/helpers'
 
 export default class TaskItemEditor extends React.Component {
     static propTypes = {
@@ -34,6 +35,9 @@ export default class TaskItemEditor extends React.Component {
                         componentClass="textarea"
                         placeholder="description"
                         defaultValue={this.props.task.description} />
+                </td>
+                <td>
+                    {h.format(this.props.task.elapsedTime)}
                 </td>
                 <td>
                     <FormControl

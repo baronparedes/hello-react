@@ -19,11 +19,11 @@ export default class NavigationHighPriorityTasks extends React.Component {
     toggleModalEditor() {
         this.setState({ showModal: !this.state.showModal });
     }
-    handleTaskItemSaved(task){
+    handleTaskItemSaved(task) {
         this.props.onTaskItemSaved(task);
         this.toggleModalEditor();
     }
-    handleActiveTask(task){
+    handleActiveTask(task) {
         this.props.onActiveTask(task);
         this.toggleModalEditor();
     }
@@ -34,11 +34,9 @@ export default class NavigationHighPriorityTasks extends React.Component {
                 eventKey={4}
                 title={header}
                 id="tasks-hp-nav-dropdown">
-                <div className="tasks-hp-container pre-scrollable container">
-                    <HighPriorityTasks
+                <HighPriorityTasks
                     tasks={this.props.highPriorityTasks}
                     onSelectActiveTask={this.handleActiveTask.bind(this)} />
-                </div>
                 <TaskItemEditorModal
                     task={this.props.activeTask}
                     showModal={this.state.showModal}

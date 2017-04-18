@@ -7,7 +7,7 @@ export default class TaskView extends React.Component {
         let headerHtml = <h1>Task Master List</h1>;
         return (
             <div className="container push-bottom">
-                <Panel header={headerHtml} bsStyle="custom">
+                <Panel header={headerHtml}>
                     <TaskContainer />
                 </Panel>
             </div>

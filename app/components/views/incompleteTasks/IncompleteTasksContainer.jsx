@@ -19,7 +19,7 @@ class IncompleteTasksContainer extends Component {
     render() {
         let headerHtml = <h1>TODO</h1>;
         return (
-            <Panel header={headerHtml} bsStyle="custom">
+            <Panel header={headerHtml}>
                 <Grid fluid>
                     <Row>
                         {this.renderTasks()}

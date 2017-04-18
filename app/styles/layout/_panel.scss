@@ -1,18 +1,18 @@
 /// <reference path="_variables.scss" />
 @import 'variables';
-.panel-custom>.panel-heading {
+.panel-default>.panel-heading {
     background-color: $primary-bg-color;
     color: $contrast-font-color;
-    background-image: '';
+    background-image: none;
 }
-.panel-custom{
+.panel-default{
     border-color: $secondary-bg-color;
     border-width: 1px;
 }
 .modal-header{
     background-color: $primary-bg-color;
     color: $contrast-font-color;
-    background-image: '';
+    background-image: none;
 }
 .modal-footer{
     background-color: $secondary-bg-color;
